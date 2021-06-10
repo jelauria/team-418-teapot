@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+// Initial captcha input page. Displays error if user inputs the wrong answer for Captcha
 router.get('/', function (req, res, next) {
     if (req.session.error === undefined) {
         res.render('index', { title: 'Coffee Teapots'});
