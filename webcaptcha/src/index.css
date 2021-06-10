@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: local('Space Grotesk'), url(./fonts/SpaceGrotesk-VariableFont_wght.ttf) format('truetype');
+}
