@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .w3-container
+    if locals.user
+      h4 You are logged in!
+    else
+        if error
+            h4 #{error}
+        <form action="/checkAnswer" method="POST">
+            <br>
+            <input type=text name="answer" placeholder="Enter object name">
+            <br>
+            <br>
+            <input type=submit value=submit>
+        </form>
