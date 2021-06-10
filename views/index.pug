@@ -5,4 +5,10 @@ block content
     if locals.user
       h4 You are logged in!
     else
-      h4 Click #[a(href="/login") here] to log in or create a new account.
+        br
+        form(action="/login")
+            br
+            input(type="text" id="sound" placeholder="Enter object name")
+            br
+            br
+            input(type="submit" value="Submit")
