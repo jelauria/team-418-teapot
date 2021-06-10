@@ -1,4 +1,4 @@
-// routes/auth.js
+// Source : https://auth0.com/docs/quickstart/webapp/nodejs
 
 var express = require('express');
 var router = express.Router();
@@ -7,14 +7,15 @@ var dotenv = require('dotenv');
 var util = require('util');
 var url = require('url');
 var querystring = require('querystring');
+const { default: validator } = require('validator');
 
 dotenv.config();
 
 router.post('/checkAnswer', function(req, res) {
-    console.log(req.body.answer);
-    if (req.body.answer === "frog") {
+    if (validator.isAlphanumeric(req.body.answer) && req.body.answer === "frog") {
         res.redirect('/login');
     } else {
+        req.session.error = "Wrong Answer!";
         res.redirect('/');
     }
 })

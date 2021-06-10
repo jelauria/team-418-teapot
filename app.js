@@ -1,8 +1,11 @@
-var session = require('express-session');
+// Source: https://auth0.com/docs/quickstart/webapp/nodejs
+
+const session = require('express-session');
 const express = require('express');
 const path = require('path')
 const app = express();
 const bodyParser = require('body-parser');
+const validator = require('validator');
 
 // Routes
 var userInViews = require('./lib/middleware/userInViews');
@@ -46,9 +49,6 @@ var strategy = new Auth0Strategy(
         process.env.AUTH0_CALLBACK_URL || 'http://localhost:8080/callback'
     },
     function (accessToken, refreshToken, extraParams, profile, done) {
-      // accessToken is the token to call Auth0 API (not needed in the most cases)
-      // extraParams.id_token has the JSON Web Token
-      // profile has all the information from the user
       return done(null, profile);
     }
   );
@@ -58,7 +58,6 @@ var strategy = new Auth0Strategy(
   app.use(passport.initialize());
   app.use(passport.session());
   
-  // You can use this section to keep a smaller payload
 passport.serializeUser(function (user, done) {
     done(null, user);
   });
@@ -67,16 +66,16 @@ passport.serializeUser(function (user, done) {
     done(null, user);
   });
 
+// Template engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(userInViews());
 app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-
-// Template engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
