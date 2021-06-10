@@ -5,10 +5,11 @@ block content
     if locals.user
       h4 You are logged in!
     else
-        br
-        form(action="/login")
-            br
-            input(type="text" id="sound" placeholder="Enter object name")
-            br
-            br
-            input(type="submit" value="Submit")
+        <br>
+        <form action="/checkAnswer" method="POST">
+            <br>
+            <input type=text name="answer" placeholder="Enter the sound">
+            <br>
+            <br>
+            <input type=submit value=submit>
+        </form>

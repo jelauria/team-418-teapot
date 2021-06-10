@@ -2,6 +2,7 @@ var session = require('express-session');
 const express = require('express');
 const path = require('path')
 const app = express();
+const bodyParser = require('body-parser');
 
 // Routes
 var userInViews = require('./lib/middleware/userInViews');
@@ -66,6 +67,8 @@ passport.serializeUser(function (user, done) {
     done(null, user);
   });
 
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 app.use(userInViews());
 app.use('/', authRouter);
 app.use('/', indexRouter);

@@ -10,10 +10,20 @@ var querystring = require('querystring');
 
 dotenv.config();
 
+router.post('/checkAnswer', function(req, res) {
+    console.log(req.body.answer);
+    if (req.body.answer === "frog") {
+        res.redirect('/login');
+    } else {
+        res.redirect('/');
+    }
+})
+
 // Perform the login, after login Auth0 will redirect to callback
 router.get('/login', passport.authenticate('auth0', {
   scope: 'openid email profile'
 }), function (req, res) {
+
   res.redirect('/');
 });
 
