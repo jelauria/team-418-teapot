@@ -1,0 +1,27 @@
+{
+  "name": "hackathon",
+  "version": "1.0.0",
+  "description": "A thing for a thing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-sessions": "^1.0.6",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jelauria/team-418-teapot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jelauria/team-418-teapot/issues"
+  },
+  "homepage": "https://github.com/jelauria/team-418-teapot#readme"
+}
