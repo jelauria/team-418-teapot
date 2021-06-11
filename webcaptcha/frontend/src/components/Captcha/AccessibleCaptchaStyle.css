@@ -1,0 +1,36 @@
+.captchaMedia {
+    text-align: center;
+    font-family: 'Space Grotesk';
+}
+
+.captchaMedia img {
+    width: 25%;
+    margin: 5px;
+}
+
+.captchaMedia button {
+    width: 25%;
+    outline: none;
+    border: none;
+    margin: 5px;
+}
+
+#text-box {
+    margin-right: 10px;
+    border-radius: 0.3rem;
+    outline: none;
+    border-width: thin;
+    padding: 2px;
+}
+
+.captchaForm {
+    margin-top: 35px;
+    text-align: center;
+    font-family: 'Space Grotesk';
+}
+
+#submit-btn {
+    /* outline: none; */
+    border: none;
+    padding: 3px;
+}
