@@ -8,14 +8,16 @@ var util = require('util');
 var url = require('url');
 var querystring = require('querystring');
 const { default: validator } = require('validator');
+const data = require('../database');
 
 dotenv.config();
 
 router.post('/checkAnswer', function(req, res) {
-    if (validator.isAlphanumeric(req.body.answer) && req.body.answer === "frog") {
+    correctAnswer = data[req.body.dataId].answer;
+    if (validator.isAlphanumeric(req.body.answer) && req.body.answer === correctAnswer) {
+        req.session.captchaComplete = True;
         res.redirect('/login');
     } else {
-        req.session.error = "Wrong Answer!";
         res.redirect('/');
     }
 })
@@ -24,7 +26,7 @@ router.post('/checkAnswer', function(req, res) {
 router.get('/login', passport.authenticate('auth0', {
   scope: 'openid email profile'
 }), function (req, res) {
-
+  
   res.redirect('/');
 });
 
