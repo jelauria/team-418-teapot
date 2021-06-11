@@ -6,6 +6,7 @@ const path = require('path')
 const app = express();
 const bodyParser = require('body-parser');
 const validator = require('validator');
+const {MongoClient} = require('mongodb')
 
 // Routes
 var userInViews = require('./lib/middleware/userInViews');
@@ -77,6 +78,17 @@ app.use(userInViews());
 app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
+
+// async function main() {
+//   const uri = "mongodb+srv://hackathon-boi-69:kniy4maux8RIR@eeff@captcha-db.91oqh.mongodb.net/captcha-db?retryWrites=true&w=majority";
+//   const client = new MongoClient(uri);
+//   try {
+//     await client.connect();
+//   } catch (e) {
+//   } finally {
+//     await client.close();
+//   }
+// }
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
