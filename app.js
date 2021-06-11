@@ -13,10 +13,11 @@ var userInViews = require('./lib/middleware/userInViews');
 var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var token = require('crypto').randomBytes(48).toString('hex');
 
 // config express-session
 var sess = {
-  secret: 'CHANGE THIS TO A RANDOM SECRET',
+  secret: token,
   cookie: {},
   resave: false,
   saveUninitialized: true
