@@ -6,7 +6,7 @@ function Main() {
   return (
     <React.Fragment>
       <Header />
-      <LoginForm />
+      {/* <LoginForm /> */}
     </React.Fragment>
   );
 }

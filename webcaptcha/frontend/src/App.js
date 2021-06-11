@@ -6,7 +6,7 @@ import AccessibleCaptcha from './components/Captcha/AccessibleCaptcha';
 function App() {
   return (
     <div className="App">
-      {/* <Main /> */}
+      <Main />
       <AccessibleCaptcha className="v-mid" />
     </div>
   );
