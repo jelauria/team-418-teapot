@@ -9,11 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bluebird": "^3.5.0",
-=======
     "crypto": "^1.0.1",
->>>>>>> 8ebf1dfaa062a025e3f8fa22532f5a72032d84d9
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
