@@ -18,7 +18,7 @@ router.post('/checkAnswer', function(req, res) {
         req.session.captchaComplete = True;
         res.redirect('/login');
     } else {
-        res.redirect('/');
+        res.redirect('/');                                                                    
     }
 })
 
